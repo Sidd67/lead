@@ -1,0 +1,21 @@
+packages:
+  "framer-motion": "For premium page transitions, stagger animations, and micro-interactions"
+  "react-hook-form": "For performant form state management"
+  "@hookform/resolvers": "For Zod schema validation integration"
+  "zod": "For strict form validation"
+  "date-fns": "For elegant date formatting in the dashboard"
+  "clsx": "For conditional class names"
+  "tailwind-merge": "For merging tailwind classes safely"
+  "lucide-react": "For beautiful, consistent UI icons"
+
+images:
+  - path: "artifacts/leadhunter-ai/public/images/hero-bg.png"
+    description: "Dark, sleek abstract background with glowing teal and indigo network nodes representing AI web searching and data extraction, deep professional tech aesthetic, subtle glassmorphism elements"
+    aspect_ratio: "16:9"
+  - path: "artifacts/leadhunter-ai/public/images/logo.png"
+    description: "Minimalist modern geometric AI logo mark in glowing cyan and indigo on a fully transparent background"
+    aspect_ratio: "1:1"
+
+notes:
+  - Using generated hooks from @workspace/api-client-react for all API calls
+  - Assuming /api/agent-status polling should happen every 2s while running

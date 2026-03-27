@@ -1,0 +1,469 @@
+openapi: 3.1.0
+info:
+  title: Api
+  version: 0.1.0
+  description: LeadHunter AI API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: leads
+    description: Lead management
+  - name: agent
+    description: AI agent operations
+  - name: suggestions
+    description: Job suggestions
+  - name: applications
+    description: Auto-apply tracking
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /start-agent:
+    post:
+      operationId: startAgent
+      tags: [agent]
+      summary: Start the AI job search agent
+      description: Starts an AI agent that searches for job listings across multiple platforms
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AgentStartRequest"
+      responses:
+        "200":
+          description: Agent started successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AgentStartResponse"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /leads:
+    get:
+      operationId: getLeads
+      tags: [leads]
+      summary: Get all collected leads
+      description: Returns all leads collected by the AI agent
+      parameters:
+        - name: industry
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: location
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of leads
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeadsResponse"
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /jobs:
+    get:
+      operationId: getJobs
+      tags: [leads]
+      summary: Get all collected job listings
+      description: Returns all job listings collected by the AI agent
+      parameters:
+        - name: jobRole
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Filter jobs by role keyword (case-insensitive)
+        - name: location
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Filter jobs by location
+        - name: source
+          in: query
+          required: false
+          schema:
+            type: string
+          description: "Filter jobs by source platform: linkedin | naukri | internshala | wellfound"
+        - name: dateRange
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [day, week, month]
+          description: "Filter by time period: day (24h), week (7d), month (30d)"
+      responses:
+        "200":
+          description: List of job listings
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobsResponse"
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /agent-status:
+    get:
+      operationId: getAgentStatus
+      tags: [agent]
+      summary: Get current agent status
+      description: Returns the current status of the AI agent
+      responses:
+        "200":
+          description: Agent status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AgentStatus"
+
+  /job-suggestions:
+    get:
+      operationId: getJobSuggestions
+      tags: [suggestions]
+      summary: Get popular job role suggestions
+      description: Returns a curated list of popular job roles for autocomplete / quick-fill
+      responses:
+        "200":
+          description: List of job role suggestions
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobSuggestionsResponse"
+
+  /auto-apply:
+    post:
+      operationId: autoApply
+      tags: [applications]
+      summary: Auto-apply to a job listing
+      description: Records an auto-apply attempt and tracks application status
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AutoApplyRequest"
+      responses:
+        "200":
+          description: Application submitted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AutoApplyResponse"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /applications:
+    get:
+      operationId: getApplications
+      tags: [applications]
+      summary: Get all auto-apply records
+      description: Returns all recorded application attempts
+      responses:
+        "200":
+          description: List of applications
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApplicationsResponse"
+
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+
+    AgentStartRequest:
+      type: object
+      properties:
+        industry:
+          type: string
+          description: The job role to search for (e.g., "AI Engineer")
+        location:
+          type: string
+          description: The location to search in (e.g., "India")
+      required:
+        - industry
+        - location
+
+    AgentStartResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        jobId:
+          type: string
+          description: Unique identifier for the agent job
+      required:
+        - success
+        - message
+        - jobId
+
+    Lead:
+      type: object
+      properties:
+        id:
+          type: integer
+        companyName:
+          type: string
+        founderName:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        linkedinUrl:
+          type: string
+          nullable: true
+        website:
+          type: string
+          nullable: true
+        industry:
+          type: string
+        location:
+          type: string
+        dateCollected:
+          type: string
+          format: date-time
+      required:
+        - id
+        - companyName
+        - industry
+        - location
+        - dateCollected
+
+    LeadsResponse:
+      type: object
+      properties:
+        leads:
+          type: array
+          items:
+            $ref: "#/components/schemas/Lead"
+        total:
+          type: integer
+      required:
+        - leads
+        - total
+
+    AgentStatus:
+      type: object
+      properties:
+        isRunning:
+          type: boolean
+        currentJob:
+          type: object
+          nullable: true
+          properties:
+            industry:
+              type: string
+            location:
+              type: string
+            jobId:
+              type: string
+            startedAt:
+              type: string
+              format: date-time
+            leadsFound:
+              type: integer
+          required:
+            - industry
+            - location
+            - jobId
+            - startedAt
+            - leadsFound
+        lastJobAt:
+          type: string
+          format: date-time
+          nullable: true
+      required:
+        - isRunning
+
+    JobListing:
+      type: object
+      properties:
+        id:
+          type: integer
+        jobTitle:
+          type: string
+        companyName:
+          type: string
+        location:
+          type: string
+        jobUrl:
+          type: string
+        source:
+          type: string
+        jobRole:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - jobTitle
+        - companyName
+        - location
+        - jobUrl
+        - source
+        - jobRole
+        - createdAt
+
+    JobsResponse:
+      type: object
+      properties:
+        jobs:
+          type: array
+          items:
+            $ref: "#/components/schemas/JobListing"
+        total:
+          type: integer
+      required:
+        - jobs
+        - total
+
+    JobSuggestionsResponse:
+      type: object
+      properties:
+        suggestions:
+          type: array
+          items:
+            type: string
+      required:
+        - suggestions
+
+    AutoApplyRequest:
+      type: object
+      properties:
+        jobUrl:
+          type: string
+          description: URL of the job to apply to
+        jobTitle:
+          type: string
+          description: Title of the job
+        company:
+          type: string
+          description: Company name
+      required:
+        - jobUrl
+        - jobTitle
+        - company
+
+    AutoApplyResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        applicationId:
+          type: integer
+        status:
+          type: string
+          description: "pending | applied | failed"
+        message:
+          type: string
+      required:
+        - success
+        - applicationId
+        - status
+        - message
+
+    Application:
+      type: object
+      properties:
+        id:
+          type: integer
+        jobTitle:
+          type: string
+        companyName:
+          type: string
+        jobUrl:
+          type: string
+        status:
+          type: string
+        appliedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - jobTitle
+        - companyName
+        - jobUrl
+        - status
+        - appliedAt
+
+    ApplicationsResponse:
+      type: object
+      properties:
+        applications:
+          type: array
+          items:
+            $ref: "#/components/schemas/Application"
+        total:
+          type: integer
+      required:
+        - applications
+        - total
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        details:
+          type: string
+          nullable: true
+      required:
+        - error

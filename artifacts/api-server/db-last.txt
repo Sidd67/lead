@@ -1,0 +1,91 @@
+Total jobs: 45
+Sources Found: [
+  {
+    "source": "arbeitnow",
+    "c": 1
+  },
+  {
+    "source": "direct",
+    "c": 10
+  },
+  {
+    "source": "github",
+    "c": 2
+  },
+  {
+    "source": "internshala",
+    "c": 5
+  },
+  {
+    "source": "jobicy",
+    "c": 7
+  },
+  {
+    "source": "linkedin",
+    "c": 7
+  },
+  {
+    "source": "naukri",
+    "c": 6
+  },
+  {
+    "source": "themuse",
+    "c": 2
+  },
+  {
+    "source": "wellfound",
+    "c": 5
+  }
+]
+Samples: [
+  {
+    "id": 116,
+    "jobTitle": "Network Security Engineer",
+    "companyName": "Infosys",
+    "location": "india",
+    "jobUrl": "https://www.linkedin.com/jobs/search/?keywords=network%20security%20engineer%20Infosys",
+    "source": "linkedin",
+    "jobRole": "network security engineer",
+    "createdAt": "2026-03-23T12:13:17.000Z"
+  },
+  {
+    "id": 117,
+    "jobTitle": "Network Security Engineer",
+    "companyName": "TCS",
+    "location": "india",
+    "jobUrl": "https://www.linkedin.com/jobs/search/?keywords=network%20security%20engineer%20TCS",
+    "source": "linkedin",
+    "jobRole": "network security engineer",
+    "createdAt": "2026-03-23T12:13:17.000Z"
+  },
+  {
+    "id": 118,
+    "jobTitle": "Network Security Engineer",
+    "companyName": "Wipro",
+    "location": "india",
+    "jobUrl": "https://www.linkedin.com/jobs/search/?keywords=network%20security%20engineer%20Wipro",
+    "source": "linkedin",
+    "jobRole": "network security engineer",
+    "createdAt": "2026-03-23T12:13:17.000Z"
+  },
+  {
+    "id": 119,
+    "jobTitle": "Network Security Engineer",
+    "companyName": "HCL Technologies",
+    "location": "india",
+    "jobUrl": "https://www.linkedin.com/jobs/search/?keywords=network%20security%20engineer%20HCL%20Technologies",
+    "source": "linkedin",
+    "jobRole": "network security engineer",
+    "createdAt": "2026-03-23T12:13:17.000Z"
+  },
+  {
+    "id": 120,
+    "jobTitle": "Network Security Engineer",
+    "companyName": "Tech Mahindra",
+    "location": "india",
+    "jobUrl": "https://www.linkedin.com/jobs/search/?keywords=network%20security%20engineer%20Tech%20Mahindra",
+    "source": "linkedin",
+    "jobRole": "network security engineer",
+    "createdAt": "2026-03-23T12:13:17.000Z"
+  }
+]

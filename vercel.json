@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "buildCommand": "pnpm build",
+  "outputDirectory": "artifacts/leadhunter-ai/dist/public",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/$1"
+    }
+  ],
+  "framework": "vite"
+}

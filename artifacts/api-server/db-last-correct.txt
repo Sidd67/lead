@@ -1,0 +1,141 @@
+Total jobs: 45
+Sources Found: [
+  {
+    "source": "arbeitnow",
+    "c": 1
+  },
+  {
+    "source": "direct",
+    "c": 10
+  },
+  {
+    "source": "github",
+    "c": 2
+  },
+  {
+    "source": "internshala",
+    "c": 5
+  },
+  {
+    "source": "jobicy",
+    "c": 7
+  },
+  {
+    "source": "linkedin",
+    "c": 7
+  },
+  {
+    "source": "naukri",
+    "c": 6
+  },
+  {
+    "source": "themuse",
+    "c": 2
+  },
+  {
+    "source": "wellfound",
+    "c": 5
+  }
+]
+Last 10 Samples: [
+  {
+    "id": 160,
+    "jobTitle": "Software Engineer",
+    "companyName": "tieubao",
+    "location": "Global/Remote",
+    "jobUrl": "https://tieubao.com/careers?utm_source=leadhunter&q=Software%20Engineer",
+    "source": "direct",
+    "jobRole": "software engineer",
+    "createdAt": "2026-03-24T08:21:46.000Z"
+  },
+  {
+    "id": 159,
+    "jobTitle": "Software Engineer",
+    "companyName": "tieubao",
+    "location": "Global/Remote",
+    "jobUrl": "https://github.com/tieubao/til/issues/400",
+    "source": "github",
+    "jobRole": "software engineer",
+    "createdAt": "2026-03-24T08:21:46.000Z"
+  },
+  {
+    "id": 158,
+    "jobTitle": "Software Engineer",
+    "companyName": "sameermps",
+    "location": "Global/Remote",
+    "jobUrl": "https://sameermps.com/careers?utm_source=leadhunter&q=Software%20Engineer",
+    "source": "direct",
+    "jobRole": "software engineer",
+    "createdAt": "2026-03-24T08:21:46.000Z"
+  },
+  {
+    "id": 157,
+    "jobTitle": "Software Engineer",
+    "companyName": "sameermps",
+    "location": "Global/Remote",
+    "jobUrl": "https://github.com/sameermps/Hiring-Python-Engineers/issues/1",
+    "source": "github",
+    "jobRole": "software engineer",
+    "createdAt": "2026-03-24T08:21:46.000Z"
+  },
+  {
+    "id": 156,
+    "jobTitle": "Software Engineer",
+    "companyName": "Uber",
+    "location": "Remote",
+    "jobUrl": "https://uber.com/careers?utm_source=leadhunter&q=Software%20Engineer",
+    "source": "direct",
+    "jobRole": "software engineer",
+    "createdAt": "2026-03-24T08:21:46.000Z"
+  },
+  {
+    "id": 155,
+    "jobTitle": "Software Engineer",
+    "companyName": "Uber",
+    "location": "Remote",
+    "jobUrl": "https://www.themuse.com/jobs/uber/senior-software-engineer-consumer-fulfillment-ubereats",
+    "source": "themuse",
+    "jobRole": "software engineer",
+    "createdAt": "2026-03-24T08:21:46.000Z"
+  },
+  {
+    "id": 154,
+    "jobTitle": "Software Engineer",
+    "companyName": "Flexport",
+    "location": "Shanghai, China",
+    "jobUrl": "https://flexport.com/careers?utm_source=leadhunter&q=Software%20Engineer",
+    "source": "direct",
+    "jobRole": "software engineer",
+    "createdAt": "2026-03-24T08:21:46.000Z"
+  },
+  {
+    "id": 153,
+    "jobTitle": "Software Engineer",
+    "companyName": "Flexport",
+    "location": "Shanghai, China",
+    "jobUrl": "https://www.themuse.com/jobs/flexport/software-engineer-forwarding-tech-commerce-88ff67",
+    "source": "themuse",
+    "jobRole": "software engineer",
+    "createdAt": "2026-03-24T08:21:46.000Z"
+  },
+  {
+    "id": 152,
+    "jobTitle": "Software Engineer",
+    "companyName": "CoverGo",
+    "location": "Vietnam",
+    "jobUrl": "https://covergo.com/careers?utm_source=leadhunter&q=Software%20Engineer",
+    "source": "direct",
+    "jobRole": "software engineer",
+    "createdAt": "2026-03-24T08:21:46.000Z"
+  },
+  {
+    "id": 151,
+    "jobTitle": "Software Engineer",
+    "companyName": "CoverGo",
+    "location": "Vietnam",
+    "jobUrl": "https://jobicy.com/jobs/140916-software-engineer-intern-net-vue-react",
+    "source": "jobicy",
+    "jobRole": "software engineer",
+    "createdAt": "2026-03-24T08:21:46.000Z"
+  }
+]

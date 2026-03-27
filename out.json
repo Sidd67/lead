@@ -1,0 +1,1 @@
+{"error":"Failed query: select \"id\", \"job_title\", \"company_name\", \"location\", \"job_url\", \"source\", \"job_role\", \"created_at\" from \"jobs\" where \"jobs\".\"created_at\" >= $1 order by \"jobs\".\"created_at\"\nparams: 2026-02-21T11:12:08.703Z"}
